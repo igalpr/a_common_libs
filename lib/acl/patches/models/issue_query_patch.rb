@@ -3,12 +3,12 @@ module Acl::Patches::Models
     def self.included(base)
       base.send :include, InstanceMethods
       base.class_eval do
-        alias_method_chain :issues, :acl
+        alias_method :issues, :acl
       end
     end
 
     module InstanceMethods
-      # must be last in alias_method_chain call stack, eg. first defined
+      # must be last in alias_method call stack, eg. first defined
       def issues_with_acl(options={})
         order_option = [group_by_sort_order, (options[:order] || sort_clause)].flatten.reject(&:blank?)
         scope = Issue.visible.

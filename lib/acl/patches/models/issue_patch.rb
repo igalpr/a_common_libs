@@ -7,11 +7,11 @@ module Acl::Patches::Models
       base.class_eval do
         attr_accessor :acl_cf_casted_values
         class << self
-          alias_method_chain :visible_condition, :acl
-          alias_method_chain :allowed_target_projects, :acl
+          alias_method :visible_condition, :acl
+          alias_method :allowed_target_projects, :acl
         end
 
-        alias_method_chain :safe_attributes=, :acl
+        alias_method :safe_attributes=, :acl
 
         safe_attributes 'custom_field_values_append',
                         'custom_field_values_delete',

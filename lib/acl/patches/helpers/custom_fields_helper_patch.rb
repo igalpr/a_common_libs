@@ -4,7 +4,7 @@ module Acl::Patches::Helpers
       base.send :include, InstanceMethods
 
       base.class_eval do
-        alias_method_chain :show_value, :acl
+        alias_method :show_value, :acl
       end
     end
 
@@ -74,7 +74,7 @@ end
 #   def self.included(base)
 #     base.send :include, I
 #     base.class_eval do
-#       alias_method_chain :a, :a
+#       alias_method :a, :a
 #     end
 #   end
 #   module I
