@@ -6,7 +6,7 @@ Contains:
 
 Changelog:
 2.5.7
-* Added: support rail 2.5.4
+* Added: support rail 5.2.4
 
 2.5.6
 * Added: additional macros
