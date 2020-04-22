@@ -4,7 +4,7 @@ module Acl::Patches::Models
       base.send :include, InstanceMethods
 
       base.class_eval do
-        alias_method :value_object, :acl
+        alias_method_chain :value_object, :acl
       end
     end
 

@@ -4,7 +4,7 @@ module Acl::Patches::Controllers
       base.send(:include, InstanceMethods)
 
       base.class_eval do
-        alias_method :plugin, :a_common_libs
+        alias_method_chain :plugin, :a_common_libs
       end
     end
 

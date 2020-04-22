@@ -4,7 +4,7 @@ module Acl
       base.send :include, InstanceMethods
 
       base.class_eval do
-        alias_method :l, :acl
+        alias_method_chain :l, :acl
       end
     end
 

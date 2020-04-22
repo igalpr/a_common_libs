@@ -50,7 +50,7 @@ module ActiveRecord
           build_join_constraint_without_rmp(table, foreign_table)
         end
 
-        alias_method :build_join_constraint, :rmp
+        alias_method_chain :build_join_constraint, :rmp
       else
         Rails.logger.info 'Loaded rmp_reflection_ext version 5.2.4'
 
@@ -80,7 +80,7 @@ module ActiveRecord
           join_scope_without_rmp(table, foreign_table, foreign_klass)
         end
 
-        alias_method :join_scope, :rmp
+        alias_method_chain :join_scope, :rmp
       end
     end
   end

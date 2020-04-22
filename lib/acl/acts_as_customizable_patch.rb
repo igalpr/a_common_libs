@@ -4,7 +4,7 @@ module Acl::ActsAsCustomizablePatch
 
     base.class_eval do
       class << self
-        alias_method :acts_as_customizable, :acl
+        alias_method_chain :acts_as_customizable, :acl
       end
     end
   end

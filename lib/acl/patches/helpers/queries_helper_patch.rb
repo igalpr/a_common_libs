@@ -4,7 +4,7 @@ module Acl::Patches::Helpers
       base.send :include, InstanceMethods
 
       base.class_eval do
-        alias_method :column_content, :acl
+        alias_method_chain :column_content, :acl
       end
     end
 

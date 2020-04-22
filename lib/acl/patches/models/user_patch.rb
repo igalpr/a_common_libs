@@ -6,7 +6,7 @@ module Acl::Patches::Models
       base.class_eval do
         attr_writer :api_request
 
-        alias_method :allowed_to?, :acl
+        alias_method_chain :allowed_to?, :acl
       end
     end
 

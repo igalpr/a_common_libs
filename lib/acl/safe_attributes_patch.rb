@@ -3,15 +3,15 @@ module Acl::SafeAttributesPatch
     base.send :include, InstanceMethods
 
     base.class_eval do
-      alias_method :safe_attribute?, :acl
-      alias_method :delete_unsafe_attributes, :acl
+      alias_method_chain :safe_attribute?, :acl
+      alias_method_chain :delete_unsafe_attributes, :acl
     end
   end
 
   module ClassMethods
     def self.included(base)
       base.class_eval do
-        alias_method :safe_attributes, :acl
+        alias_method_chain :safe_attributes, :acl
       end
     end
 

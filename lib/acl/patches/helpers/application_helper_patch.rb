@@ -5,7 +5,7 @@ module Acl::Patches::Helpers
       base.send :include, Acl::Helpers::ExtendHelper
 
       base.class_eval do
-        alias_method :calendar_for, :acl
+        alias_method_chain :calendar_for, :acl
       end
     end
 
