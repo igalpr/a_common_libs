@@ -4,7 +4,7 @@ module Acl::Patches::Controllers
       base.send :include, InstanceMethods
 
       base.class_eval do
-        alias_method_chain :show, :acl
+        alias_attribute_chain :show, :acl
         skip_before_action :authorize, only: [:acl_cf_trimmed_all, :acl_edit_form]
       end
     end

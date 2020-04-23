@@ -1,5 +1,5 @@
 module AliasPatch
-  def alias_method_chain(target, feature)
+  def alias_attribute_chain(target, feature)
     # Strip out punctuation on predicates or bang methods since
     # e.g. target?_without_feature is not a valid method name.
     aliased_target, punctuation = target.to_s.sub(/([?!=])$/, ''), $1
@@ -7,8 +7,8 @@ module AliasPatch
 
     with_method, without_method = "#{aliased_target}_with_#{feature}#{punctuation}", "#{aliased_target}_without_#{feature}#{punctuation}"
 
-    alias_method without_method, target
-    alias_method target, with_method
+    alias_attribute without_method, target
+    alias_attribute target, with_method
 
     case
     when public_method_defined?(without_method)

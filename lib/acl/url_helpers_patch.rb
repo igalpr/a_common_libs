@@ -2,7 +2,7 @@ module Acl::UrlHelpersPatch
   def self.included(base)
     base.send :include, InstanceMethods
     base.class_eval do
-      alias_method_chain :uri_with_safe_scheme?, :acl
+      alias_attribute_chain :uri_with_safe_scheme?, :acl
     end
   end
 

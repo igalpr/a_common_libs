@@ -4,7 +4,7 @@ module Acl::ActsAsCustomizablePatch
 
     base.class_eval do
       class << self
-        alias_method_chain :acts_as_customizable, :acl
+        alias_attribute_chain :acts_as_customizable, :acl
       end
     end
   end
@@ -19,13 +19,13 @@ module Acl::ActsAsCustomizablePatch
 
   module AclInstanceMethods
     def self.included(base)
-      base.send :alias_method_chain, :custom_field_values=, :acl
-      base.send :alias_method_chain, :custom_field_values, :acl
-      base.send :alias_method_chain, :save_custom_field_values, :acl
-      base.send :alias_method_chain, :custom_field_value, :acl
-      base.send :alias_method_chain, :reassign_custom_field_values, :acl
-      base.send :alias_method_chain, :reset_custom_values!, :acl
-      base.send :alias_method_chain, :reload, :acl
+      base.send :alias_attribute_chain, :custom_field_values=, :acl
+      base.send :alias_attribute_chain, :custom_field_values, :acl
+      base.send :alias_attribute_chain, :save_custom_field_values, :acl
+      base.send :alias_attribute_chain, :custom_field_value, :acl
+      base.send :alias_attribute_chain, :reassign_custom_field_values, :acl
+      base.send :alias_attribute_chain, :reset_custom_values!, :acl
+      base.send :alias_attribute_chain, :reload, :acl
 
       base.class_eval do
         attr_accessor :acl_cfv_hash

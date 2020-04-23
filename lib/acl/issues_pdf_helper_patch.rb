@@ -3,7 +3,7 @@ module Acl::IssuesPdfHelperPatch
     base.send :include, InstanceMethods
 
     base.class_eval do
-      alias_method_chain :fetch_row_values, :acl
+      alias_attribute_chain :fetch_row_values, :acl
     end
   end
 

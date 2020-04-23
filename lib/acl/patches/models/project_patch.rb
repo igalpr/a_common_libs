@@ -5,7 +5,7 @@ module Acl::Patches::Models
       base.send :include, InstanceMethods
 
       base.class_eval do
-        alias_method_chain :notified_users, :acl
+        alias_attribute_chain :notified_users, :acl
       end
     end
 

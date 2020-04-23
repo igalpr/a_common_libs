@@ -8,7 +8,7 @@ module Acl::Patches::Controllers
 
         helper_method :acl_mobile_device?
 
-        alias_method_chain :find_current_user, :acl
+        alias_attribute_chain :find_current_user, :acl
       end
     end
 

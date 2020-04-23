@@ -4,9 +4,9 @@ module Acl::Patches::Models
       base.send :include, InstanceMethods
 
       base.class_eval do
-        alias_method_chain :value_was, :acl
-        alias_method_chain :value, :acl
-        alias_method_chain :value=, :acl
+        alias_attribute_chain :value_was, :acl
+        alias_attribute_chain :value, :acl
+        alias_attribute_chain :value=, :acl
 
         attr_accessor :acl_changed, :acl_value, :acl_trimmed_size
         attr_accessor :acl_append, :acl_delete

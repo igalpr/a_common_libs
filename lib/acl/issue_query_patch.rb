@@ -5,11 +5,11 @@ module Acl::IssueQueryPatch
 
     base.class_eval do
       cattr_accessor :acl_stored_filter_types
-      alias_method_chain :add_available_filter, :acl
-      alias_method_chain :type_for, :acl
-      alias_method_chain :sql_for_custom_field, :acl
-      alias_method_chain :group_by_column, :acl
-      alias_method_chain :sort_clause, :acl
+      alias_attribute_chain :add_available_filter, :acl
+      alias_attribute_chain :type_for, :acl
+      alias_attribute_chain :sql_for_custom_field, :acl
+      alias_attribute_chain :group_by_column, :acl
+      alias_attribute_chain :sort_clause, :acl
     end
   end
 

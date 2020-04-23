@@ -5,8 +5,8 @@ module Acl::Patches::Models
 
       base.class_eval do
         attr_accessor :acl_ajax_like
-        alias_method_chain :sql_for_field, :acl
-        alias_method_chain :parse_date, :acl
+        alias_attribute_chain :sql_for_field, :acl
+        alias_attribute_chain :parse_date, :acl
 
         self.operators_by_filter_type[:acl_date_time] = %w(= >< >= <= !* *)
         self.operators_by_filter_type[:acl_date_month] = %w(= >< >= <= !* *)
